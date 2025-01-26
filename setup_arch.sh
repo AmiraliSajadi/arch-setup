@@ -30,6 +30,7 @@ PACMAN_PACKAGES=(
     "firefox"
     "stow"
     "python-pip"
+    "sddm"
     "noto-fonts"
     "noto-fonts-cjk"
     "noto-fonts-emoji"
@@ -39,8 +40,12 @@ PACMAN_PACKAGES=(
     "eza"
     "fzf"
     "zoxide"
+    "wget"
+    "tldr"
+    "unzip"
     "blueman"
     "nautilus"
+    "dunst"
 )
 
 for pkg in "${PACMAN_PACKAGES[@]}"; do
@@ -66,12 +71,14 @@ done
 
 # Post-install setup
 echo "Applying configurations..."
-# nautilus-open-any-terminal
-gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal kitty
-gsettings set com.github.stunkymonkey.nautilus-open-any-terminal new-tab true
+# enable sddm
+sudo systemctl enable sddm
 # enable bluetooth
 sudo systemctl enable bluetooth
 sudo systemctl start bluetooth
+# nautilus-open-any-terminal
+gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal kitty
+gsettings set com.github.stunkymonkey.nautilus-open-any-terminal new-tab true
 
 
 echo "All packages installed and configured successfully!"

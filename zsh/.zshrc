@@ -56,3 +56,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 # -------- CUSTOM WALLPAPER SOLUTION --------
 alias set-wall="$HOME/.config/wallpaper_solution/set-wall"
+
+
+# -------- FASTFETCH ON NEW TERMINALS --------
+fastfetch

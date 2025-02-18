@@ -69,6 +69,7 @@ AUR_PACKAGES=(
     "nautilus-open-any-terminal"
     "gnome-text-editor"
     "gnome-calculator"
+    "fastfetch"
 )
 
 for aur_pkg in "${AUR_PACKAGES[@]}"; do

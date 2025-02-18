@@ -1,0 +1,52 @@
+#!/bin/bash
+
+WALLPAPER_DIR="$HOME/.config/wallpaper_solution/files"
+
+# Help message function
+print_help() {
+    echo "Usage: set-wall [option] [filename]"
+    echo ""
+    echo "Options:"
+    echo "  --help       Show this help message"
+    echo "  --list       List available wallpapers in $WALLPAPER_DIR"
+    echo "  filename     Set the specified wallpaper"
+    exit 0
+}
+
+# List available wallpapers function
+list_wallpapers() {
+    echo "Available wallpapers:"
+    ls "$WALLPAPER_DIR"
+    exit 0
+}
+
+# Check for arguments
+case "$1" in
+    --help)
+        print_help
+        ;;
+    --list)
+        list_wallpapers
+        ;;
+    "")
+        echo "Error: No wallpaper specified. Use --help for usage."
+        exit 1
+        ;;
+esac
+
+WALLPAPER="$WALLPAPER_DIR/$1"
+
+if [ ! -f "$WALLPAPER" ]; then
+    echo "Error: Wallpaper '$1' not found in $WALLPAPER_DIR"
+    exit 1
+fi
+
+# Set wallpaper
+swww img "$WALLPAPER" >/dev/null 2>&1
+
+# Generate colors without auto-applying them
+wal -n -s -i "$WALLPAPER" >/dev/null 2>&1
+
+# Apply colors to Kitty
+kitty @ set-colors --all ~/.cache/wal/colors-kitty.conf >/dev/null 2>&1
+

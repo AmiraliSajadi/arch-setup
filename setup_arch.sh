@@ -45,9 +45,13 @@ PACMAN_PACKAGES=(
     "wget"
     "tldr"
     "unzip"
+    "zip"
     "blueman"
     "nautilus"
-    "dunst"
+    "openssh"
+    "wl-clipboard"
+    "swww"
+    "python-pywal"
 )
 
 for pkg in "${PACMAN_PACKAGES[@]}"; do

@@ -52,6 +52,8 @@ PACMAN_PACKAGES=(
     "wl-clipboard"
     "swww"
     "python-pywal"
+    "keyd"
+    "rofi-wayland"
 )
 
 for pkg in "${PACMAN_PACKAGES[@]}"; do

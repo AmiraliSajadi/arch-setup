@@ -45,7 +45,7 @@ fi
 swww img "$WALLPAPER" >/dev/null 2>&1
 
 # Generate colors without auto-applying them
-wal -n -s -i "$WALLPAPER" >/dev/null 2>&1
+wal --saturate 0.4 -n -i "$WALLPAPER" >/dev/null 2>&1
 
 # Apply colors to Kitty
 kitty @ set-colors --all ~/.cache/wal/colors-kitty.conf >/dev/null 2>&1

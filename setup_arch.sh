@@ -72,6 +72,8 @@ AUR_PACKAGES=(
     "gnome-text-editor"
     "gnome-calculator"
     "fastfetch"
+    "oh-my-posh"
+    "python-haishoku"
 )
 
 for aur_pkg in "${AUR_PACKAGES[@]}"; do

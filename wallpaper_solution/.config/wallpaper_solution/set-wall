@@ -1,6 +1,10 @@
 #!/bin/bash
 
 WALLPAPER_DIR="$HOME/.config/wallpaper_solution/files"
+CACHE_DIR="$HOME/.cache/wallpaper"
+
+# Ensure the cache directory exists
+mkdir -p "$CACHE_DIR"
 
 # Help message function
 print_help() {
@@ -45,8 +49,24 @@ fi
 swww img "$WALLPAPER" >/dev/null 2>&1
 
 # Generate colors without auto-applying them
-wal --saturate 0.4 -n -i "$WALLPAPER" >/dev/null 2>&1
+wal -n -i "$WALLPAPER" --backend haishoku >/dev/null 2>&1
 
 # Apply colors to Kitty
 kitty @ set-colors --all ~/.cache/wal/colors-kitty.conf >/dev/null 2>&1
+
+# ROFI wallpaper
+ROFI_CONFIG="$HOME/.config/rofi/config.rasi"
+sed -i "/background-image:/c\    background-image: url(\"$WALLPAPER\", width);" "$ROFI_CONFIG"
+
+# Generate blurred wallpaper as PNG (cached version)
+BLURRED_WALLPAPER="$CACHE_DIR/blurred-$(basename "$WALLPAPER" | sed 's/\.[^.]*$/.png/')"
+
+if [ ! -f "$BLURRED_WALLPAPER" ]; then
+    echo ":: Generating blurred wallpaper as PNG for Hyprlock..."
+    magick "$WALLPAPER" -blur "$BLURRED_WALLPAPER"
+fi
+
+# Hyprlock wallpaper
+HYPRLOCK_CONFIG="$HOME/.config/hypr/hyprlock.conf"
+sed -i "/path =/c\    path = \"$BLURRED_WALLPAPER\"" "$HYPRLOCK_CONFIG"
 

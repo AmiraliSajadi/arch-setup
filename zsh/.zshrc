@@ -60,3 +60,7 @@ alias set-wall="$HOME/.config/wallpaper_solution/set-wall"
 
 # -------- FASTFETCH ON NEW TERMINALS --------
 fastfetch
+
+
+# -------- OH-MY-POSH PROMPT DECORATOR --------
+eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/theme.json)"

@@ -1,0 +1,50 @@
+[
+    {
+        "key": "general:resize_on_border",
+        "value": true
+    },
+    {
+        "key": "general:extend_border_grab_area",
+        "value": 20
+    },
+    {
+        "key": "decoration:inactive_opacity",
+        "value": 0.9
+    },
+    {
+        "key": "decoration:dim_inactive",
+        "value": false
+    },
+    {
+        "key": "decoration:dim_strength",
+        "value": 0.5
+    },
+    {
+        "key": "decoration:rounding",
+        "value": 10
+    },
+    {
+        "key": "decoration:active_opacity",
+        "value": 1.0
+    },
+    {
+        "key": "decoration:blur:enabled",
+        "value": true
+    },
+    {
+        "key": "decoration:blur:contrast",
+        "value": 1.5
+    },
+    {
+        "key": "decoration:blur:vibrancy",
+        "value": 0.2
+    },
+    {
+        "key": "decoration:blur:popups",
+        "value": false
+    },
+    {
+        "key": "decoration:blur:brightness",
+        "value": 1.0
+    }
+]

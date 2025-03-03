@@ -54,6 +54,7 @@ PACMAN_PACKAGES=(
     "python-pywal"
     "keyd"
     "rofi-wayland"
+    "flatpak"
 )
 
 for pkg in "${PACMAN_PACKAGES[@]}"; do

@@ -58,9 +58,24 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 alias set-wall="$HOME/.config/wallpaper_solution/set-wall"
 
 
-# -------- FASTFETCH ON NEW TERMINALS --------
-fastfetch
-
-
 # -------- OH-MY-POSH PROMPT DECORATOR --------
 eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/theme.json)"
+
+
+# -------- DREXEL-VPN --------
+alias drexel-vpn="~/.local/bin/drexel-vpn.sh"
+
+
+# -------- YAZI --------
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+
+# -------- FASTFETCH ON NEW TERMINALS --------
+fastfetch

@@ -18,12 +18,13 @@
         "pulseaudio",
         //"network",
         //"cpu",
-        //"memory",
         //"temperature",
         //"hyprland/language",
         //"battery",
         //"battery#bat2",
-        "clock"
+        //"notification",
+        "clock",
+        "memory"
     ],
     //Modules configuration
 

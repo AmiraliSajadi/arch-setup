@@ -30,6 +30,8 @@ PACMAN_PACKAGES=(
     "firefox"
     "stow"
     "python-pip"
+    "hyprcursor"
+    "bibata-cursor-theme-bin"
     "sddm"
     "hyprlock"
     "hyprpaper"
@@ -55,6 +57,9 @@ PACMAN_PACKAGES=(
     "keyd"
     "rofi-wayland"
     "flatpak"
+    "ttf-firacode-nerd"
+    "ttf-fira-sans"
+    "wlroots"
 )
 
 for pkg in "${PACMAN_PACKAGES[@]}"; do
@@ -75,6 +80,8 @@ AUR_PACKAGES=(
     "fastfetch"
     "oh-my-posh"
     "python-haishoku"
+    "visual-studio-code-bin"
+    "slack-desktop"
 )
 
 for aur_pkg in "${AUR_PACKAGES[@]}"; do

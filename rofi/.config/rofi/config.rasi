@@ -16,7 +16,7 @@ configuration {
 
 /*****----- Global Properties -----*****/
 * {
-    font:                        "Fira Sans 10";
+    font:                        "Fira Sans 11";
     border:                      0em;
     background-alt:              @alternate-normal-background;
     selected:                    @selected-active-background;

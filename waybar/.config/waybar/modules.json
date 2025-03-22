@@ -56,8 +56,14 @@
         "tooltip": true
     },
     "memory": {
-        "format": "  {}%",
-	"tooltip": true
+        "format": " ",
+	"tooltip": true,
+	"on-click": "swaync-client -t"
+    },
+    "notification": {
+        "format": "",
+	"tooltip": true,
+	"on-click": "swaync-client -t"
     },
     "temperature": {
         "interval": 10,

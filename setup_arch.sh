@@ -35,6 +35,7 @@ PACMAN_PACKAGES=(
     "sddm"
     "hyprlock"
     "hyprpaper"
+    "hypridle"
     "noto-fonts"
     "noto-fonts-cjk"
     "noto-fonts-emoji"

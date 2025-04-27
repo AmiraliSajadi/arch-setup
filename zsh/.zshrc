@@ -62,10 +62,6 @@ alias set-wall="$HOME/.config/wallpaper_solution/set-wall"
 eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/theme.json)"
 
 
-# -------- DREXEL-VPN --------
-alias drexel-vpn="~/.local/bin/drexel-vpn.sh"
-
-
 # -------- YAZI --------
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
@@ -79,3 +75,4 @@ function y() {
 
 # -------- FASTFETCH ON NEW TERMINALS --------
 fastfetch
+

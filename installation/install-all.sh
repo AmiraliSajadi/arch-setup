@@ -72,7 +72,6 @@ echo "========================================"
 echo ""
 echo "Applying post-install configurations..."
 
-sudo systemctl enable sddm
 sudo systemctl enable bluetooth
 sudo systemctl start bluetooth
 
@@ -80,4 +79,8 @@ sudo systemctl start bluetooth
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal kitty
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal new-tab true
 
+# Set default shell to zsh
+chsh -s $(which zsh)
+
 echo "All done!"
+echo "Please log out or reboot the system for all changes to take place."

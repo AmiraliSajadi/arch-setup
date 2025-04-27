@@ -1,0 +1,14 @@
+yazi
+zsh-autosuggestions
+zsh-syntax-highlighting
+btop
+wlogout
+nautilus-open-any-terminal
+gnome-text-editor
+gnome-calculator
+fastfetch
+oh-my-posh
+python-haishoku
+visual-studio-code-bin
+slack-desktop
+

@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Ensure the script is run with sudo privileges for pacman part
-if [ "$EUID" -ne 0 ]; then
-  echo "Please run this script as root or with sudo."
+# Check if user can sudo
+if ! sudo -v; then
+  echo "This script requires sudo privileges to install system packages."
   exit 1
 fi
 
@@ -39,7 +39,7 @@ if ! command -v yay &> /dev/null; then
   rm -rf yay-bin
 fi
 
-# Drop sudo now for yay stuff
+# --- Install AUR packages without sudo ---
 echo ""
 echo "Installing AUR (yay) packages:"
 counter=1
@@ -72,6 +72,7 @@ echo "========================================"
 echo ""
 echo "Applying post-install configurations..."
 
+sudo systemctl enable sddm
 sudo systemctl enable bluetooth
 sudo systemctl start bluetooth
 
@@ -80,4 +81,3 @@ gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal kitty
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal new-tab true
 
 echo "All done!"
-

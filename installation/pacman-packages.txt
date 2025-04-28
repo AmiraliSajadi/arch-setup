@@ -33,3 +33,6 @@ keyd
 rofi-wayland
 flatpak
 wlroots
+gnome-disk-utility
+waybar
+swaync

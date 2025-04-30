@@ -16,7 +16,7 @@ configuration {
 
 /*****----- Global Properties -----*****/
 * {
-    font:                        "Fira Sans 11";
+    font:                        "Fira Sans 12";
     border:                      0em;
     background-alt:              @alternate-normal-background;
     selected:                    @selected-active-background;
@@ -65,7 +65,7 @@ inputbar {
     spacing:                     10px;
     padding:                     80px 60px;
     background-color:            transparent;
-    background-image: url("/home/amirali/.config/wallpaper_solution/files/nyc_street.jpg", width);
+    background-image: url("~/.cache/wallpaper/wallpaper.jpg", width);
     text-color:                  @foreground;
     orientation:                 horizontal;
     children:                    [ "textbox-prompt-colon", "entry", "dummy", "mode-switcher" ];

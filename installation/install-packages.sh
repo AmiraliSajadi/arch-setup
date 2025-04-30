@@ -82,5 +82,12 @@ gsettings set com.github.stunkymonkey.nautilus-open-any-terminal new-tab true
 # Set default shell to zsh
 chsh -s $(which zsh)
 
+# Automatic login after boot up
+# You will only rely on decription afterward to login after a boot!
+
+
+
+# TODO: Stow all configurations
+
 echo "All done!"
 echo "Please log out or reboot the system for all changes to take place."

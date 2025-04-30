@@ -2,29 +2,26 @@
 
 WALLPAPER_DIR="$HOME/.config/wallpaper_solution/files"
 CACHE_DIR="$HOME/.cache/wallpaper"
+HYPRPAPER_CONF="$HOME/.config/hypr/hyprpaper.conf"
 
-# Ensure the cache directory exists
 mkdir -p "$CACHE_DIR"
 
-# Help message function
 print_help() {
     echo "Usage: set-wall [option] [filename]"
     echo ""
     echo "Options:"
     echo "  --help       Show this help message"
     echo "  --list       List available wallpapers in $WALLPAPER_DIR"
-    echo "  filename     Set the specified wallpaper"
+    echo "  filename     Set the specified wallpaper for all monitors"
     exit 0
 }
 
-# List available wallpapers function
 list_wallpapers() {
     echo "Available wallpapers:"
     ls "$WALLPAPER_DIR"
     exit 0
 }
 
-# Check for arguments
 case "$1" in
     --help)
         print_help
@@ -45,8 +42,29 @@ if [ ! -f "$WALLPAPER" ]; then
     exit 1
 fi
 
-# --------------- Set wallpaper ---------------
-swww img "$WALLPAPER" >/dev/null 2>&1
+EXT="${1##*.}"
+CACHE_FILE="$CACHE_DIR/wallpaper.$EXT"
+cp "$WALLPAPER" "$CACHE_FILE"
+
+# Get all monitor names
+MONITORS=$(hyprctl monitors | grep 'Monitor' | awk '{print $2}')
+
+if [ -z "$MONITORS" ]; then
+    echo "Error: No monitors detected."
+    exit 1
+fi
+
+# Generate hyprpaper.conf
+{
+    echo "preload = $CACHE_FILE"
+    for MON in $MONITORS; do
+        echo "wallpaper = $MON,$CACHE_FILE"
+    done
+} > "$HYPRPAPER_CONF"
+
+# Restart hyprpaper
+pkill hyprpaper
+hyprpaper >/dev/null 2>&1 &
 
 # --------------- Generate colors without auto-applying them --------------- 
 wal -n -i "$WALLPAPER" --backend haishoku >/dev/null 2>&1
@@ -54,19 +72,9 @@ wal -n -i "$WALLPAPER" --backend haishoku >/dev/null 2>&1
 # --------------- Apply colors to Kitty --------------- 
 kitty @ set-colors --all ~/.cache/wal/colors-kitty.conf >/dev/null 2>&1
 
-# --------------- ROFI wallpaper --------------- 
-ROFI_CONFIG="$HOME/.config/rofi/config.rasi"
-sed -i "/background-image:/c\    background-image: url(\"$WALLPAPER\", width);" "$ROFI_CONFIG"
+# --------------- Generate blurred wallpaper as PNG (cached version) ---------------
+magick "$WALLPAPER" -blur 0x9 "$CACHE_DIR/blurred-wallpaper.png"
 
-# # --------------- Generate blurred wallpaper as PNG (cached version) ---------------
-# BLURRED_WALLPAPER="$CACHE_DIR/blurred-$(basename "$WALLPAPER" | sed 's/\.[^.]*$/.png/')"
-#
-# if [ ! -f "$BLURRED_WALLPAPER" ]; then
-#     echo ":: Generating blurred wallpaper as PNG for Hyprlock..."
-#     magick "$WALLPAPER" -blur "$BLURRED_WALLPAPER"
-# fi
-#
-# # --------------- Hyprlock wallpaper ---------------
-# HYPRLOCK_CONFIG="$HOME/.config/hypr/hyprlock.conf"
-# sed -i "/path =/c\    path = \"$BLURRED_WALLPAPER\"" "$HYPRLOCK_CONFIG"
-
+# # --------------- ROFI wallpaper --------------- 
+# ROFI_CONFIG="$HOME/.config/rofi/config.rasi"
+# sed -i "/background-image:/c\    background-image: url(\"$WALLPAPER\", width);" "$ROFI_CONFIG"

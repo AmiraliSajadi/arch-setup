@@ -1,6 +1,11 @@
 configuration {
-    show-icons:     true;
-    display-drun:               "";
+	modi:                       "drun,window";
+    show-icons:                 true;
+    display-drun:               " ";
+    display-filebrowser:        " ";
+    display-window:             " ";
+	drun-display-format:        "{name}";
+	window-format:              "{w} · {c} · {t}";
 }
 
 * {

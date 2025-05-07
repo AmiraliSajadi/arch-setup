@@ -2,11 +2,14 @@
 In this version I'm trying to have a simpler and more robust setup.
 
 ## To Do:
-- Secure Boot
+- Moving windows between two differently scaled monitors --> blur
+- Scaling of Xorg apps like Edge & Code is off
+- Enable Secure Boot
+- Screenshot tool
 - Snapper
 - Alt + Tab
 - Idle (dim the screen etc.)
-- Edge
+- No sleep mode (also got an icon for it in waybar)
 - NeoVim
 
 

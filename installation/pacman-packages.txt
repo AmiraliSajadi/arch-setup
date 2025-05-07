@@ -3,6 +3,7 @@ git
 kitty
 firefox
 stow
+less
 python-pip
 hyprcursor
 bibata-cursor-theme-bin
@@ -36,3 +37,4 @@ wlroots
 gnome-disk-utility
 waybar
 swaync
+visual-studio-code-bin

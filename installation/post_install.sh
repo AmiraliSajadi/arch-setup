@@ -31,6 +31,17 @@ sudo systemctl start bluetooth
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal kitty
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal new-tab true
 
+# set tab --> esc
+sudo mkdir -p /etc/keyd
+sudo tee /etc/keyd/default.conf > /dev/null <<EOF
+[ids]
+*
+
+[main]
+capslock = esc
+EOF
+sudo systemctl enable --now keyd
+
 # TODO: Stow all configurations
 
 

@@ -3,6 +3,7 @@ zsh-autosuggestions
 zsh-syntax-highlighting
 btop
 wlogout
+hyprshot
 nautilus-open-any-terminal
 gnome-text-editor
 gnome-calculator

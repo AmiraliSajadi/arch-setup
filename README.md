@@ -5,7 +5,6 @@ In this version I'm trying to have a simpler and more robust setup.
 - Moving windows between two differently scaled monitors --> blur
 - Scaling of Xorg apps like Edge & Code is off
 - Enable Secure Boot
-- Screenshot tool
 - Snapper
 - Alt + Tab
 - Idle (dim the screen etc.)
@@ -20,6 +19,7 @@ In this version I'm trying to have a simpler and more robust setup.
 - Wallpaper
 - swaync Notification (its trying to import pywal colors and fails)
 - Lock Screen
+- Screenshot tool
 
 
 ## Upgrades:

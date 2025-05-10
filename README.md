@@ -1,6 +1,6 @@
 # Hyprland Setup
 ![Overview](screenshots/overview.png)
-![Rofi](screenshots/rofi.png)
+![Rofi-Swaync](screenshots/rofi-swaync.png)
 ![Tiling](screenshots/tiling.png)
 
 

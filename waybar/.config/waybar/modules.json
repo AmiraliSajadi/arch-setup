@@ -2,7 +2,6 @@
     "custom/arch": {
         "format": "󰣇",
         "tooltip": true,
-        "tooltip-format": "btw"
     },
     "hyprland/window": {
         "separate-outputs": true

@@ -38,3 +38,5 @@ gnome-disk-utility
 waybar
 swaync
 visual-studio-code-bin
+vlc
+pavucontrol

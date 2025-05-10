@@ -1,3 +1,9 @@
+# Hyprland Setup
+![Overview](screenshots/overview.png)
+![Rofi](screenshots/rofi.png)
+![Tiling](screenshots/tiling.png)
+
+
 # Version 2
 In this version I'm trying to have a simpler and more robust setup.
 
